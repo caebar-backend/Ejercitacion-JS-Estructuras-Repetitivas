@@ -24,8 +24,12 @@ let respuesta
 // Bucle WHILE
 function bucleWhile(){
 while(true){
-notas = prompt(chalk.blueBright(`Bucle While: Ingrese una nota a continuación ("EXIT" o nota negativa para abortar cálculo...)---> `))
-if(notas === "EXIT" || notas < 0){
+notas = prompt(chalk.blueBright(`Bucle While: Ingrese una nota a continuación ("EXIT" para salir / nota negativa para abortar cálculo...) ---> `))
+if(notas === "EXIT"){
+    console.log(chalk.bgRedBright(`Decidió abortar la operación!, no hay promedio final!!`))
+    return;
+}
+if(notas < 0){
     break;
 }
 if (isNaN(notas)){
@@ -48,9 +52,13 @@ console.log(chalk.green(`El promedio de las notas ingresadas es: ${promedioWhile
 // Bucle FOR
 function bucleFor() {
 for(contadorFor; contadorFor >= 0;){
-    notas = prompt(chalk.blueBright(`Bucle For: Ingrese una nota a continuación ("EXIT" o nota negativa para abortar cálculo...)---> `))
+    notas = prompt(chalk.blueBright(`Bucle For:  Ingrese una nota a continuación ("EXIT" para salir / nota negativa para abortar cálculo...)---> `))
     
-    if (notas === "EXIT" || notas < 0){
+    if (notas === "EXIT"){
+        console.log(chalk.bgRedBright(`Decidió abortar la operación!, no hay promedio final!!`))
+        return;
+    }
+    if (notas < 0){
         break;
     }
     if (isNaN(notas)){
@@ -74,13 +82,14 @@ console.log(chalk.green(`El promedio de las notas ingresadas es: ${promedioFor}`
 // Bucle DO-WHILE 
 function bucleDoWhile() {
 do{
-    notas = prompt(chalk.blueBright(`Ingrese una nota a continuación ("EXIT" o nota negativa para abortar cálculo...) ---> `))
+    notas = prompt(chalk.blueBright(` Ingrese una nota a continuación ("EXIT" para salir / nota negativa para abortar cálculo...) ---> `))
     
     if(notas < 0){
         break;
     }
     if(notas === "EXIT"){
-        break;
+        console.log(chalk.bgRedBright(`Decidió abortar la operación!, no hay promedio final!!`))
+        return;
     }
     if (isNaN(notas)){
         console.log(chalk.red(`Error: Ingrese un valor numérico`))
